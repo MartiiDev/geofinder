@@ -6,7 +6,7 @@ if (!urlParams.has('lang')) {
   lang = "fr";
 } else if (getLang == "en") {
   lang = "en";
-  $('.guessButton').html("<i class='fas fa-globe-europe'></i>&nbsp;Chose a location");
+  $('#guessButton').html("<i class='fas fa-globe-europe'></i>&nbsp;Chose a location");
   $('.round').html('<em>Round: </em>0/5<br>');
   $('.roundScore').html('<em>Last score: </em>0<br>');
   $('.totalScore').html('<em>Total score: </em>0<br>');
