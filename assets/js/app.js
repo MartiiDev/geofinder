@@ -99,7 +99,7 @@ $(document).ready(function() {
   // Functions
   // Reset Timer
   function resetTimer() {
-    count = 10;
+    count = 180;
     counter = setInterval(timer, 1000);
   }
 
