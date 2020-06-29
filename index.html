@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>GeoFinder</title>
+    <meta property="og:title" content="GeoFinder" />
+    <meta property="og:description" content="A free alternative to GeoGuessr." />
+    <meta property="og:type" content="game" />
+    <meta property="og:url" content="https://martii.co/geofinder" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div id="content">
+        <div class="btn-group" role="group" id="navButtons">
+            <button class="btn btn-success" id="guessButton" disabled type="button" style="background-color: rgb(40,167,159);">
+                <i class='fas fa-globe-europe'></i>&nbsp;Où est cet endroit ?
+            </button>
+        </div>
+        <div class="modal fade" role="dialog" tabindex="-1" id="endGame"></div>
+        <div class="modal fade" role="dialog" tabindex="-1" id="roundEnd"></div>
+        <div class="container-fluid" id="scoreBoard" style="width: auto;padding: 0;">
+            <div class="card">
+                <div class="card-body" style="padding: 10px;padding-top: 7px;">
+                    <p class="text-left card-text">
+                        <span id="round" class="round"><em>Manche:</em>&nbsp;1/5<br></span>
+                        <span id="roundScore" class="roundScore"><em>Dernier score:</em>&nbsp;0<br></span>
+                        <span id="totalScore" class="totalScore"><em>Score total:</em>&nbsp;0<br></span></p>
+                </div>
+                <div class="card-body" style="padding: 10px;padding-top: 7px; border-top: 0.5px solid lightgrey">
+                    <p class="text-center card-text" id="timer"></p>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="miniMap"></div>
+        <div id='pano'></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCZOXlIZdfYBcn_W8UrY-JYrE3eueQq4_k&sensor=false&libraries=geometry'></script>
+    <script type='text/javascript' src='assets/js/rnd.js'></script>
+    <script type='text/javascript' src='assets/js/minimap.js'></script>
+    <script type='text/javascript' src='assets/js/streetviewmap.js'></script>
+    <script type='text/javascript' src='assets/js/roundmap.js'></script>
+    <script type='text/javascript' src='assets/js/app.js'></script>
+    <script src="assets/js/bs-init.js"></script>
+</body>
+</html>

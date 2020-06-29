@@ -1,0 +1,85 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+}
+
+#content {
+  width: 100%;
+  height: 100%;
+}
+
+#pano {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+#roundEnd {
+  overflow: visible;
+/*  border-top-right-radius: calc(.3rem - 1px);
+  border-top-left-radius: calc(.3rem - 1px);*/
+}
+
+#scoreBoard {
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+}
+
+#navButtons {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#selectionMap {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+#miniMap {
+  position: absolute;
+  z-index: 1000;
+  width: 200px;
+  height: 200px;
+  bottom: 0;
+  right: 0;
+  -webkit-transition: width, height, 0.2s ease-in-out;
+  -moz-transition: width, height, 0.2s ease-in-out;
+  -o-transition: width, height, 0.2s ease-in-out;
+  transition: width, height, 0.2s ease-in-out;
+}
+
+#miniMap:hover {
+  width: 450px;
+  height: 450px;
+  z-index: 1000;
+  transform-origin: bottom right;
+}
+
+#navButtons {
+  z-index: 1000;
+}
+
+
+#roundMap {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+#endGame {
+  overflow: visible;
+}
+
+#guessButton:disabled {
+  background-color: lightgrey;
+  color: black;
+  cursor: not-allowed;
+}
