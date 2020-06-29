@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>GeoFinder</title>
     <meta property="og:title" content="GeoFinder" />
-    <meta property="og:description" content="A free alternative to GeoGuessr." />
+    <meta property="og:description" content="Une alternative gratuite au jeu GeoGuessr avec tout plein de fonctionnalités !" />
     <meta property="og:type" content="game" />
-    <meta property="og:url" content="https://martii.co/geofinder" />
+    <meta property="og:url" content="https://geo.martii.co" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -16,7 +16,7 @@
     <div id="content">
         <div class="btn-group" role="group" id="navButtons">
             <button class="btn btn-success" id="guessButton" disabled type="button" style="background-color: rgb(40,167,159);">
-                <i class='fas fa-globe-europe'></i>&nbsp;Où est cet endroit ?
+                <i class='fas fa-globe-europe'></i>&nbsp;Choisis un emplacement
             </button>
         </div>
         <div class="modal fade" role="dialog" tabindex="-1" id="endGame"></div>
@@ -40,12 +40,21 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCZOXlIZdfYBcn_W8UrY-JYrE3eueQq4_k&sensor=false&libraries=geometry'></script>
-    <script type='text/javascript' src='assets/js/rnd.js'></script>
+    <script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCZOXlIZdfYBcn_W8UrY-JYrE3eueQq4_k&libraries=geometry'></script>
+    <script type="text/javascript">
+    jQuery.extend({
+      random: function(X) {
+        return Math.floor(X * (Math.random() % 1));
+      },
+      randomBetween: function(MinV, MaxV) {
+        return MinV + jQuery.random(MaxV - MinV + 1);
+      }
+    });
+    </script>
+    <script type='text/javascript' src='assets/js/moment.js'></script>
     <script type='text/javascript' src='assets/js/minimap.js'></script>
     <script type='text/javascript' src='assets/js/streetviewmap.js'></script>
     <script type='text/javascript' src='assets/js/roundmap.js'></script>
     <script type='text/javascript' src='assets/js/app.js'></script>
-    <script src="assets/js/bs-init.js"></script>
 </body>
 </html>

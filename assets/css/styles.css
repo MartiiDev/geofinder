@@ -20,8 +20,6 @@ body {
 
 #roundEnd {
   overflow: visible;
-/*  border-top-right-radius: calc(.3rem - 1px);
-  border-top-left-radius: calc(.3rem - 1px);*/
 }
 
 #scoreBoard {

@@ -45,15 +45,20 @@ $(document).ready(function() {
   function timer() {
     count = count - 1;
     if (count <= 0) {
-      game.timedOut = true;
-      clearInterval(counter);
-      if (round < 5) {
-        endRound();
-      } else if (round >= 5) {
+    clearInterval(counter);
+      if (window.guessLatLng) {
+        doGuess();
+      } else {
+        game.timedOut = true;
         endRound();
       }
     }
-    $("#timer").text(count);
+    time = new Date(count * 1000).toISOString().substr(11, 8)
+    if (time == "23:59:59") {
+      $("#timer").text("00:00:00");
+    } else {
+      $("#timer").text(time);
+    }
   };
 
   // Guess Button
@@ -68,6 +73,7 @@ $(document).ready(function() {
       endGame();
 
     } else {
+      timer();
       round++;
       if (lang == "fr") {
         $('.round').html('<em>Manche: </em>' + round + '/5<br>');
@@ -182,7 +188,6 @@ $(document).ready(function() {
 
       }
       
-      timer();
       window.guessLatLng = '';
       rminitialize();
     }
@@ -223,7 +228,6 @@ $(document).ready(function() {
         }
       }
 
-      window.guessLatLng = '';
       ranOut = false;
       points = 0;
 
@@ -239,6 +243,10 @@ $(document).ready(function() {
       })
       $('#roundEnd').modal('show');
     }
+
+    locLatLongs = window.locLL.toString();
+    guessLatLongs = window.guessLatLng.toString();
+    rminitialize();
 
     // Reset Params
     window.guessLatLng = '';
@@ -259,9 +267,9 @@ $(document).ready(function() {
     }
 
     if (lang == "fr") {
-      $('#endGame').html('<div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-body"><h3 class="text-center"><i class="fas fa-trophy"></i>&nbsp;' + totalScore + ' points</h3><br><p class="text-center">Ton score total est <strong>' + totalScore + ' points</strong>.<br>Feras-tu mieux la prochaine fois?</p></div><div class="modal-footer"><a class="btn btn-danger d-lg-flex mr-auto" href="/">Quitter</a><a class="btn btn-primary d-lg-flex playAgain" href="" style="background-color: rgb(0,178,255);"><i class="fas fa-redo" style="padding-top: 4px;"></i>&nbsp;Rejouer</a></div></div></div>');
+      $('#endGame').html('<div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-body"><h3 class="text-center"><i class="fas fa-trophy"></i>&nbsp;' + totalScore + ' points</h3><br><p class="text-center">Ton score total est <strong>' + totalScore + ' points</strong>.<br>Feras-tu mieux la prochaine fois?</p></div><div class="modal-footer"><a class="btn btn-danger mr-auto" href="/">Quitter</a><a class="btn btn-primary playAgain" href="" style="background-color: rgb(0,178,255);"><i class="fas fa-redo" style="padding-top: 4px;"></i>&nbsp;Rejouer</a></div></div></div>');
     } else if (lang == "en") {
-      $('#endGame').html('<div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-body"><h3 class="text-center"><i class="fas fa-trophy"></i>&nbsp;' + totalScore + ' points</h3><br><p class="text-center">Your final score is <strong>' + totalScore + ' points</strong>.<br>Can you do better next time?</p></div><div class="modal-footer"><a class="btn btn-danger d-lg-flex mr-auto" href="/">Quit</a><a class="btn btn-primary d-lg-flex playAgain" href="" style="background-color: rgb(0,178,255);"><i class="fas fa-redo" style="padding-top: 4px;"></i>&nbsp;Play again</a></div></div></div>');
+      $('#endGame').html('<div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-body"><h3 class="text-center"><i class="fas fa-trophy"></i>&nbsp;' + totalScore + ' points</h3><br><p class="text-center">Your final score is <strong>' + totalScore + ' points</strong>.<br>Can you do better next time?</p></div><div class="modal-footer"><a class="btn btn-danger mr-auto" href="/">Quit</a><a class="btn btn-primary playAgain" href="" style="background-color: rgb(0,178,255);"><i class="fas fa-redo" style="padding-top: 4px;"></i>&nbsp;Play again</a></div></div></div>');
     }
     $('#endGame').modal({
         backdrop: 'static',

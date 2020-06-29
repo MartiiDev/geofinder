@@ -13,7 +13,7 @@ function svinitialize() {
   // Do streetview
   var whoamiLocation = new google.maps.LatLng(coordArrayLatLongs[0], coordArrayLatLongs[1]);
   var streetViewService = new google.maps.StreetViewService();
-  var STREETVIEW_MAX_DISTANCE = 100;
+  var STREETVIEW_MAX_DISTANCE = 2000;
 
   streetViewService.getPanoramaByLocation(whoamiLocation, STREETVIEW_MAX_DISTANCE, function(streetViewPanoramaData, status) {
     if (status === google.maps.StreetViewStatus.OK) {
@@ -24,6 +24,7 @@ function svinitialize() {
         addressControl: false,
         linksControl: false,
         fullscreenControl: false,
+        motionTracking: false,
         pov: {
           heading: 270,
           zoom: 1,
